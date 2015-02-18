@@ -1,0 +1,203 @@
+<?php
+require_once '../../lib/h.php';
+require_once '../../lib/password_compat/password.php';
+require_once 'db_imfo.php';
+
+
+
+// セッション開始
+session_start();
+// エラーメッセージの初期化
+  $errorMessage_login = "";
+  $errorMessage = "";
+// Login system
+if (isset($_POST["login"])) {
+  
+
+
+
+   // 認証
+  if (!empty($_POST["userid_login"]) && !empty($_POST["password_login"])) {
+    // mysqlへの接続
+    $mysqli = new mysqli($db["host"],$db["user"],$db["pass"]);
+    
+    if ($mysqli->connect_errno) {
+      print('<p>データベースへの接続に失敗しました。</p>' . $mysqli->connect_error);
+      exit();
+    }
+    // データベースの選択
+    $mysqli->select_db("2014");
+    // 入力値のサニタイズ
+    $userid_login = $mysqli->real_escape_string($_POST["userid_login"]);
+    // クエリの実行
+    $query = "SELECT * FROM member_imfo WHERE userid = '" . $userid_login . "'";
+    $result = $mysqli->query($query);
+    if (!$result) {
+      print('クエリーが失敗しました。' . $mysqli->error);
+      $mysqli->close();
+      exit();
+    }
+    while ($row = $result->fetch_assoc()) {
+      // パスワード(暗号化済み）の取り出し
+      $db_hashed_pwd = $row['password'];
+    }
+    // データベースの切断
+    $mysqli->close();
+
+    // ３．画面から入力されたパスワードとデータベースから取得したパスワードのハッシュを比較します。
+    //if ($_POST["password"] == $pw) {
+    
+  if (isset($db_hashed_pwd)){
+    if (password_verify($_POST["password_login"], $db_hashed_pwd)) {
+        // ４．認証成功なら、セッションIDを新規に発行する
+        session_regenerate_id(true);
+        $_SESSION["USERID"] = $_POST["userid_login"];
+        header("Location: index1.html");
+        exit;
+      } 
+    }
+    else {
+        // 認証失敗
+        $errorMessage_login = "ユーザIDあるいはパスワードに誤りがあります。";
+      }  
+  }
+
+    
+
+  else {
+    // 未入力なら何もしない
+    } 
+}
+
+// register system
+else if (isset($_POST["register"])) {
+
+  // check
+  if ( !empty($_POST["userid"]) && !empty($_POST["group"]) && !empty($_POST["mail"]) && !empty($_POST["password"]) ){
+    // mysqlへの接続
+
+    $mysqli = new mysqli($db["host"], $db["user"], $db["pass"]);
+    // データベースの選択
+    $mysqli->select_db("2014");
+    // 入力値のサニタイズ
+    $firstname = $mysqli->real_escape_string($_POST["firstname"]);
+    $lastname = $mysqli->real_escape_string($_POST["lastname"]);
+    $userid = $mysqli->real_escape_string($_POST["userid"]);
+    $group = $mysqli->real_escape_string($_POST["group"]);
+    $mail = $mysqli->real_escape_string($_POST["mail"]);
+    $password = $mysqli->real_escape_string($_POST['password']);    
+    
+    if (!preg_match("/^[a-zA-Z0-9]+$/", $password)) {
+      $errorMessage = "パスワードは半角英数で登録してください。" ;
+    }
+     else if(!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $mail)){
+      $errorMessage = "不正なメールアドレスです。";
+    }
+     else if(!preg_match("/^[a-zA-Z0-9]+$/", $group)){
+      $errorMessage = "所属は半角英数で登録してください。";
+    }
+    else if(!preg_match("/^[a-zA-Z0-9]+$/", $userid)){
+      $errorMessage = "ユーザーIDは半角英数で登録してください。";
+    }
+    else if(!preg_match("/^[a-zA-Z0-9]+$/", $lastname)){
+      $errorMessage = "lastnameは半角英数で登録してください。";
+    }
+    else if(!preg_match("/^[a-zA-Z0-9]+$/", $firstname)){
+      $errorMessage = "firstnameは半角英数で登録してください。";
+    }
+    else{  
+      # ハッシュ処理の計算コストを指定します。ソルトは自動生成とします。
+      $options = array('cost' => 10);
+      # ハッシュ化方式にPASSWORD_DEFAULTを指定し、パスワードをハッシュ化します。
+      $hash = password_hash($password, PASSWORD_DEFAULT, $options); 
+
+      // クエリの実行
+      $query = "INSERT INTO `member_imfo`(`firstname`,`lastname`, `group`, `mail`, `userid`,`password`) VALUES ('$firstname','$lastname','$group','$mail','$userid','$hash')";
+      $result = $mysqli->query($query);
+      if (!$result) {
+        print('クエリーが失敗しました。' . $mysqli->error);
+        $mysqli->close();
+        exit();
+      }else{
+        $errorMessage = "登録完了です。入力したユーザーIDとパスワードでログインしてください。";
+      }
+
+      // データベースの切断
+      $mysqli->close();
+
+
+      if ($mysqli->connect_errno) {
+        print('<p>データベースへの接続に失敗しました。</p>' . $mysqli->connect_error);
+        exit();
+      } 
+
+    }
+  }
+} 
+?>
+
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The database for comparative political research</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="container">
+  <header>
+    <div class="title">
+      <p class="title">The database for comparative political research</p>
+    </div>
+    <div class="explain">
+      <p class="explain_title">参議院議員通常選挙市区町村別  データ  データベース</p>
+      <p class="explain_main" >参議院議員通常選挙の市区町村別データを格納したデータベースです。
+        有権者数・投票者数・有効投票数・候補者別(政党別)得票数を取得できます。
+        なお本データベースは、文部科学省科学研究費補助金基盤研究（B)「戦後日本の政治変動と参議院選挙：市区町村別データに基づく実証的研究」（課題番号21330031　研究代表者：福元健太郎）による研究成果の一部です。</p>
+    </div>
+  </header>
+  <div id="main">
+    <div class="info">
+      <p class="info_title">更新情報:</p>
+      <p>本データベースは1月末日公開予定でしたが、データの不備が見つかったため、2月上旬に延期しました。データの正確性を期すための措置でございます。何卒ご容赦ください。</p>
+    </div>
+    <div class="member">
+    <div class="left"><fieldset class="login">
+      <legend>Login</legend>
+      <center><?php if ($errorMessage_login) {echo '<p style="color:red;">' . h($errorMessage_login) . '</p>';}?></center>
+          <form id="loginForm" name="loginForm" action="" accept-charset="utf-8" method="post">
+            <input type="text" placeholder="userID" required="required" id="userid_login" name="userid_login" value=""  size=15 >
+            <input required="required" placeholder="password" type="password" id="password_login" name="password_login" value="" size=15 >
+            <br>
+            <input type="submit" name="login" value="Enter">
+          </form>
+    </fieldset>
+    </div>
+    <div class="right"><fieldset class="register">
+      
+      <legend>新規登録※半角英数字</legend>
+    <center><?php if ($errorMessage) {echo '<p style="color:red;">' . h($errorMessage) . '</p>';}?></center>
+      <form id="loginForm" name="loginForm" action="" accept-charset="utf-8" method="post">
+      <input required="required" placeholder="firstname" type="text" id="firstname" name="firstname" value=""/>
+               <input required="required"placeholder="lastname" type="text" id="lastname" name="lastname" value=""/>
+                  <input required="required" placeholder="group" type="text" id="group" name="group" value=""/>
+                  <input required="required" placeholder="mail" type="text" id="mail" name="mail" value=""/>
+                  <input type="text" required="required" placeholder="userID" id="userid" name="userid" value=""  />
+                  <input required="required" placeholder="passsword" type="text" id="password" name="password" value=""/>
+                  <br>
+                  <input type="submit"  id="register" name="register" value="登録" class="botton" /> 
+                  </form>
+       </fieldset>
+</div>      
+    
+          </div>
+    <div class="way"><p>※参議院DBの使用は学術目的に限定されます。また参議院DBのデータを用いて研究発表する際には、必ず本論文を引用してください。</p></div>
+  </div>
+</div>
+</body>
+</html>
