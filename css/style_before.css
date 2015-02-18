@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+  background-image:url('../img/bg_b17_13.gif');
+  font-family:Avenir, 'Helvetica neue', Helvetica, '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+#container{
+  width:1020px;
+  margin:0 auto;
+  /*
+  background:url(/img/bg_b17_13.gif);*/
+}
+
+header{
+  width:790px;
+  margin-top:50 px;
+  margin-left:115px;
+  /*
+  background-color:#983335;*/
+}
+
+.title{
+  width:790px;
+  height:56px;
+  /*
+  background-color:#000000;
+  */
+
+  background-image:url('../img/giji.jpg');
+}
+
+p.title{
+  color:#FFFFFF;
+  text-align:left;
+  font-size: 150%;
+}
+
+
+.explain{
+   width:790px;
+  /*
+  background-color:#000000;*/
+  margin-top:50px;
+  border:solid;
+  background-color: #FFFFFF;
+}
+
+
+p.explain_title{
+  font-size: 150%;
+  font-style: italic;
+}
+
+p.explain_main{
+  font-weight: bolder;
+}
+ 
+ #main{
+   width:790px;
+   height:1000px;
+   margin-top:50px;
+   margin-left:115px;
+   /*background-color:#000000*/
+ }
+ 
+ .info{
+   width:790px;
+   /*
+   background-color:#000000;*/
+   margin:0 auto;
+   border:solid;
+ }
+
+
+ p.info_title{
+  font-weight: bolder;
+ }
+ 
+ .member{
+   width:790px;
+   height:250px;
+   /*
+   background-color:#E6F57F;*/
+   margin:50px 0px;
+   }
+ 
+ .left{
+   width:395px;
+   height:300px;
+   float:left;
+ }
+
+ .right{
+   width:395px;
+   height:300px;
+   float:left;
+ }
+   
+   
+  
+ .login{
+   width:200px;;
+   /*background-color:#3225BC;*/
+    border:solid;
+    
+ }
+ 
+ .register{
+   width:300px;
+   border:solid;
+   float:right;
+   /*
+   background-color:#F40B0E;
+   */
+ }
+ 
+.way{
+   width:790px;
+   border:solid;}
+   
+
+
+/*ログイン後画面の設定。※やまもっちゃんこの辺見て*/;
+
+table.contens{
+  width:790px;
+  background-color: #FFFFFF;
+
+}
