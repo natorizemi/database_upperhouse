@@ -1,6 +1,6 @@
 <?php
-require_once '../../lib/h.php';
-require_once '../../lib/password_compat/password.php';
+require_once 'lib/h.php';
+require_once 'lib/password_compat/password.php';
 require_once 'db_imfo.php';
 
 
@@ -21,7 +21,7 @@ if (isset($_POST["login"])) {
     // mysqlへの接続
     $mysqli = new mysqli($db["host"],$db["user"],$db["pass"]);
     
-    if ($mysqli->connect_errno) {
+      if ($mysqli->connect_errno) {
       print('<p>データベースへの接続に失敗しました。</p>' . $mysqli->connect_error);
       exit();
     }
