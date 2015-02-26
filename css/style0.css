@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+  background-image:url('../img/bg_b17_13.gif');
+  font-family:Avenir, 'Helvetica neue', Helvetica, '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  font-size: 14px;
+}
+
+#container{
+  width:1020px;
+  margin:0 auto;
+  /*
+  background:url(/img/bg_b17_13.gif);*/
+}
+
+header{
+  width:790px;
+  margin-top:50 px;
+  margin-left:115px;
+  /*
+  background-color:#983335;*/
+}
+
+.title{
+  width:790px;
+  height:56px;
+  /*
+  background-color:#000000;
+  */
+
+  background-image:url('../img/giji.jpg');
+}
+
+.explain{
+   width:790px;
+  /*
+  background-color:#000000;*/
+  margin-top:50px;
+  border:solid;
+  background-color: #FFFFFF;
+}
+
+
+p.explain_title{
+  font-size: 150%;
+  font-style: italic;
+}
+
+p.explain_main{
+  font-weight: bolder;
+}
+ 
+ #main{
+   width:790px;
+   height:1000px;
+   margin-top:50px;
+   margin-left:115px;
+   /*background-color:#000000*/
+ }
+
+ #main_index1{
+   width:790px;
+   height:1000px;
+   margin-top:50px;
+   margin-left:115px;
+   /*background-color:#000000*/
+ }
+ 
+ .info{
+   width:790px;
+   /*
+   background-color:#000000;*/
+   margin:0 auto;
+   border:solid;
+ }
+
+
+ p.info_title{
+  font-weight: bolder;
+ }
+ 
+ .member{
+   width:790px;
+   height:250px;
+   /*
+   background-color:#E6F57F;*/
+   margin:50px 0px;
+   }
+ 
+ .left{
+   width:395px;
+   height:300px;
+   float:left;
+ }
+
+ .right{
+   width:395px;
+   height:300px;
+   float:left;
+ }
+   
+   
+  
+ .login{
+   width:200px;;
+   /*background-color:#3225BC;*/
+    border:solid;
+    
+ }
+ 
+ .register{
+   width:300px;
+   border:solid;
+   float:right;
+   /*
+   background-color:#F40B0E;
+   */
+ }
+ 
+.way{
+   width:790px;
+   border:solid;}
+   
+
+
+/*ログイン後画面の設定。※やまもっちゃんこの辺見て*/;
+
+table.contens{
+  width:790px;
+  background-color: #FFFFFF;
+
+}
+
+.input{
+font-size:1.2em;
+padding:5px 15px;
+width:790px;
+color:black;
+background-color:white;
+border-width:1px 1px 1px 1px;
+border-color:gray;
+border-style:solid;
+}
+
+.option{
+  width: 790px;
+}
+
+.contens a{
+  font-size: 14px;
+  padding-left: 1px 0px;
+}
+
+.unit-tr{
+  background-color: white;
+}
+
+.data-tr{
+  background-color: white;
+}
+
+td.data-td{
+  width: 790px;
+}
+
+.option-tr{
+  background-color: white;
+}
+.log{
+font-size:1.0em;
+color:black;
+background-color:white;
+border-width:1px 1px 1px 1px;
+border-color:gray;
+border-style:solid;
+}
+.log2{
+font-size:1.0em;
+color:black;
+background-color:white;
+border-width:1px 1px 1px 1px;
+border-color:gray;
+border-style:solid;
+}
