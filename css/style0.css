@@ -85,6 +85,10 @@ p.explain_main{
    margin-left:115px;
    /*background-color:#000000*/
  }
+
+ input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
  
  .info{
    width:780px;
@@ -104,10 +108,11 @@ p.explain_info{
  }
  
  .member{
-   width:790px;
+   width:780px;
    height:350px;
    background-color:#FFFFFF;   
    margin:25px 0px;
+   padding:5px;
    }
  
 
@@ -130,12 +135,12 @@ legend{
 }
  
  .left{
-   width:395px;
+   width:390px;
    float:left;
  }
 
  .right{
-   width:395px;
+   width:390px;
    float:left;
  }
   
