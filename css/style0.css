@@ -42,11 +42,11 @@ p.title{
 
 
 .explain{
-   width:790px;
+   width:780px;
+   padding:5px;
   /*
   background-color:#000000;*/
   margin-top:50px;
-  border:solid;
   background-color: #FFFFFF;
 }
 
@@ -56,6 +56,16 @@ p.explain_title{
   font-size: 150%;
   font-style: italic;
 }
+
+p.strong {
+    color: hsl(240, 50%, 50%);
+    padding-left: 5px;
+    border-left: 4px solid hsl(240, 50%, 50%);
+    border-bottom: 1px solid hsl(240, 50%, 50%);
+    font-size:120%;
+    font-weight:bolder;
+}
+
 
 p.explain_main{
   font-weight: bolder;
@@ -78,13 +88,17 @@ p.explain_main{
  }
  
  .info{
-   width:790px;
+   width:780px;
    /*
    background-color:#000000;*/
    margin:0 auto;
-   border:solid;
+   background-color: #FFFFFF;
+    padding:5px;
  }
 
+p.explain_info{
+  font-weight:bolder;
+}
 
  p.info_title{
   font-weight: bolder;
@@ -92,46 +106,55 @@ p.explain_main{
  
  .member{
    width:790px;
-   height:250px;
-   /*
-   background-color:#E6F57F;*/
+   height:200px;
+   background-color:#FFFFFF;   
    margin:50px 0px;
    }
+   
+   
+ fieldset{
+   text-align:center;
+   border:thick;  
+   border-color:#ffffff;
+  }
+ 
+legend{
+  font-weight:bolder;
+  border-bottom:dotted;
+  
+  color:hsl(240, 50%, 50%);
+}
  
  .left{
    width:395px;
-   height:300px;
    float:left;
  }
 
  .right{
    width:395px;
-   height:300px;
    float:left;
  }
-   
+  
+ 
    
   
  .login{
-   width:200px;;
+   width:300px;
    /*background-color:#3225BC;*/
-    border:solid;
     
  }
  
  .register{
    width:300px;
-   border:solid;
    float:right;
-   /*
-   background-color:#F40B0E;
-   */
  }
  
 .way{
-   width:790px;
-   border:solid;}
-   
+   width:780px;
+   background-color:#FFFFFF;
+    padding:5px;   
+    font-weight:bolder;
+}
 
 
 /*ログイン後画面の設定。※やまもっちゃんこの辺見て*/;
@@ -140,17 +163,6 @@ table.contens{
   width:790px;
   background-color: #FFFFFF;
 
-}
-
-.input{
-font-size:1.2em;
-padding:5px 15px;
-width:790px;
-color:black;
-background-color:white;
-border-width:1px 1px 1px 1px;
-border-color:gray;
-border-style:solid;
 }
 
 .option{
