@@ -32,6 +32,15 @@ header{
   background-image:url('../img/giji.jpg');
 }
 
+p.title{
+  color:#FFFFFF;
+  text-align:left;
+  font-size: 150%;
+  margin: 0 auto;
+}
+
+
+
 .explain{
    width:790px;
   /*
@@ -40,6 +49,7 @@ header{
   border:solid;
   background-color: #FFFFFF;
 }
+
 
 
 p.explain_title{
