@@ -29,8 +29,10 @@ header{
   /*
   background-color:#000000;
   */
-
+/*
   background-image:url('../img/giji.jpg');
+  */
+  margin-left:110px;
 }
 
 p.title{
