@@ -26,6 +26,7 @@ var normal = {'有権者数':'選挙当日の有権者数',
 			'党派・会派等':'党派・会派等',
 			'現新':'現職・新人の別',
 			'サイト':'サイト',
+			//'性別':'性別'
 			'前職':'前職'};
 			
 function treeMenu(tName) {
@@ -62,11 +63,15 @@ function relation(){
 	if(type==true){
 		deleteContent();
 		loopContent(normal,'uhnormal[]');
+		$("#treeMenu7").children("input").removeAttr("disabled");
 	}else{
 		deleteContent();
 		loopContent(uhcommon,'uhcommon[]');
 		loopContent(uhcontent,'uhcontent[]');
 		loopContent(uhsummarize,'uhsummarize[]');
+		$( "#treeMenu7" ).children( "input" ).attr( "checked", false );
+		$( "#treeMenu7" ).children( "input" ).attr( "disabled", "disabled" );
+		$( "input[value='summarize']" ).css( "margin-left", "25px" );
 	}
 }
 /*
@@ -99,7 +104,7 @@ function txt(){
 
    var myvalueR = $("#text").val().split(",");
    var sectionR = ["normalized", "relation"];
-   var pullR = ["有権者数", "投票者数", "有効投票数", "いずれの", "投票率", "定数", "候補者数", "cand", "party", "candRelative", "partyRelative", "candAbsolute", "partyAbsolute", "summarize", "得票数", "得票総数", "届け出順", "順位", "名前", "年齢", "党派・会派等", "現新", "サイト", "前職"];
+   var pullR = ["有権者数", "投票者数", "有効投票数", "いずれの", "投票率", "定数", "候補者数", "cand", "party", "candRelative", "partyRelative", "candAbsolute", "partyAbsolute", "summarize", "得票数", "得票総数", "届け出順", "順位", "名前", "年齢", "党派・会派等", "現新", "サイト", " 性別", "前職"];
    for( var m = 0; m < myvalueR.length; m++ ){
       for( var n = 0; n < sectionR.length; n++){
          if( myvalueR[m] == sectionR[n] ){
@@ -132,6 +137,10 @@ function txt(){
    //$("#change").css( "display", "block" );
    //$("#relation").show();
 
+
+
+
+
 }
 
 $(document).ready( function() {
@@ -152,4 +161,11 @@ function check(){
    }  
 }
     
-
+/*function() {
+   if( $("input[value='relation']").is( ":checked" )){
+      alert("aaa");
+	  //$("#treeMenu7").children("input").prop("disabled", true);
+   }else{
+   	  alert("bbb");
+   }
+}*/

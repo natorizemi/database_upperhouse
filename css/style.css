@@ -142,6 +142,7 @@ border-width:1px 1px 1px 1px;
 border-color:gray;
 border-style:solid;
 width: 816px;
+float: left;
 }
 
 .log2{
@@ -152,6 +153,9 @@ border-width:1px 1px 1px 1px;
 border-color:gray;
 border-style:solid;
 width: 130px;
+height: 21px;
+float: left;
+margin-left: 3px;
 }
 
 .input{
