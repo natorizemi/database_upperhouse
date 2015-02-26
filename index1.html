@@ -156,7 +156,7 @@ if (!isset($_SESSION["USERID"])) {
                  <td VALIGN=top>
                     <A href="javaScript:treeMenu('treeMenu7')">候補者情報</A>
 　　                    <DIV id="treeMenu7" style="display:block">
-　　                       <input type="checkbox" name="uhcandinfo[]" value="candInfo">候補者情報の取得</A><BR>
+　　                       <span class="koho"> <input type="checkbox" name="uhcandinfo[]" value="candInfo">候補者情報の取得</A><BR></span>
                           <!--<input type="checkbox" name="uhcandinfo[]" value="name">氏名</A><BR>
 　　                       <input type="checkbox" name="uhcandinfo[]" value="kana">氏名（カタカナ）</A><BR>
                       　　 <input type="checkbox" name="uhcandinfo[]" value="age">年齢</A><BR>
@@ -167,13 +167,8 @@ if (!isset($_SESSION["USERID"])) {
                       　　 <input type="checkbox" name="uhcandinfo[]" value="candInfo">候補者情報の取得</A><BR>-->
                       <div class="words">
                         <!--選択した選挙年度・選挙種別に対応した候補者・政党名情報を一枚のCSVファイルにまとめて取得できます。<br>正規型ファイルを選択した場合には、ファイルはダウンロードできません。「項目」から必要な候補者情報を選択してください。<br>-->
-                       選択した選挙年度・選挙種別に対応した<br>候補者・政党名情報を
- 一枚のCSVファイル<br>に
- まとめて取得できます。<br>
- 正規型ファイルを選択した場合には、<br>
- ファイルはダウンロードできません。<br>
- 「項目」から必要な候補者情報を<br>
- 選択してください。<br>
+                        <br>
+                       ※選択した選挙年度・選挙種別に対応した<br>候補者・政党名情報を一枚のCSVファイル<br>にまとめて取得できます。<br>正規型ファイルを選択した場合には、ファ<br>イルはダウンロードできません。"項目"か<br>ら必要な候補者情報を選択してください。<br>
                       </div>
 　　                    </DIV>
                  </td>
