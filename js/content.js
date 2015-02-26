@@ -63,14 +63,14 @@ function relation(){
 	if(type==true){
 		deleteContent();
 		loopContent(normal,'uhnormal[]');
-		$("#treeMenu7").children("input").removeAttr("disabled");
+		$( ".get" ).attr( "checked", false );
+		$( ".get" ).attr( "disabled", "disabled" );
 	}else{
 		deleteContent();
 		loopContent(uhcommon,'uhcommon[]');
 		loopContent(uhcontent,'uhcontent[]');
 		loopContent(uhsummarize,'uhsummarize[]');
-		$( "#treeMenu7" ).children( "input" ).attr( "checked", false );
-		$( "#treeMenu7" ).children( "input" ).attr( "disabled", "disabled" );
+		$(".get").removeAttr("disabled");
 		$( "input[value='summarize']" ).css( "margin-left", "25px" );
 	}
 }
