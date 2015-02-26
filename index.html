@@ -4,7 +4,6 @@ require_once 'lib/password_compat/password.php';
 require_once 'db_imfo.php';
 
 
-
 // セッション開始
 session_start();
 // エラーメッセージの初期化
@@ -145,15 +144,20 @@ else if (isset($_POST["register"])) {
 <head>
 <meta charset="UTF-8">
 <title>The database for comparative political research</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/style0.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <div id="container">
   <header>
     <div class="title">
-      <p class="title">The database for comparative political research</p>
-    </div>
+    <table style="border-collapse: collapse; border: 1px solid #000000" width="790" bordercolor="#111111" cellpadding="0" cellspacing="0" height="56" background="img/giji.jpg">
+  <tr>
+    <td width="100%" height="56">
+<font color="white"><font face="Constantia" size="5"><i>　The database for comparative political research</font></i></font></td>
+  </tr>
+</table>
+</div>
     <div class="explain">
       <p class="explain_title">参議院議員通常選挙市区町村別  データ  データベース</p>
       <p class="explain_main" >参議院議員通常選挙の市区町村別データを格納したデータベースです。

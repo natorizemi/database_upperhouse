@@ -4,6 +4,7 @@
 body{
   background-image:url('../img/bg_b17_13.gif');
   font-family:Avenir, 'Helvetica neue', Helvetica, '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  font-size: 14px;
 }
 
 #container{
@@ -31,13 +32,6 @@ header{
   background-image:url('../img/giji.jpg');
 }
 
-p.title{
-  color:#FFFFFF;
-  text-align:left;
-  font-size: 150%;
-}
-
-
 .explain{
    width:790px;
   /*
@@ -58,6 +52,14 @@ p.explain_main{
 }
  
  #main{
+   width:790px;
+   height:1000px;
+   margin-top:50px;
+   margin-left:115px;
+   /*background-color:#000000*/
+ }
+
+ #main_index1{
    width:790px;
    height:1000px;
    margin-top:50px;
@@ -128,4 +130,56 @@ table.contens{
   width:790px;
   background-color: #FFFFFF;
 
+}
+
+.input{
+font-size:1.2em;
+padding:5px 15px;
+width:790px;
+color:black;
+background-color:white;
+border-width:1px 1px 1px 1px;
+border-color:gray;
+border-style:solid;
+}
+
+.option{
+  width: 790px;
+}
+
+.contens a{
+  font-size: 14px;
+  padding-left: 1px 0px;
+}
+
+.unit-tr{
+  background-color: white;
+}
+
+.data-tr{
+  background-color: white;
+}
+
+td.data-td{
+  width: 790px;
+}
+
+.option-tr{
+  background-color: white;
+}
+.log{
+font-size:1.0em;
+color:black;
+background-color:white;
+border-width:1px 1px 1px 1px;
+border-color:gray;
+border-style:solid;
+}
+.log2{
+font-size:1.0em;
+color:black;
+background-color:white;
+border-width:1px 1px 1px 1px;
+border-color:gray;
+border-style:solid;
 }
