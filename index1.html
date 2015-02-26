@@ -12,7 +12,6 @@ if (!isset($_SESSION["USERID"])) {
 
 <!DOCTYPE html>
 
-<<<<<<< HEAD
 <html lang="ja">
 
    <head>
@@ -43,13 +42,17 @@ if (!isset($_SESSION["USERID"])) {
 　                   <input type="radio" name="method" value="middle"><A href="#">中選挙区ごとにまとめて</A>　　　　　
 　                   <input type="radio" name="method" value="small"><A href="#">小選挙区ごとにまとめて</A>　　　
 　                   <input type="radio" name="method" value="city"><A href="#">市区町村ごと</A>   <br><br>-->
-                     <input type="radio" name="method" value="pre" checked>都道府県ごとにまとめて
-                     <input type="radio" name="method" value="middle">中選挙区ごとにまとめて
-                     <input type="radio" name="method" value="small">小選挙区ごとにまとめて
-                     <input type="radio" name="method" value="city">市区町村そんごとにまとめて   <br><br>
-                     <input type="radio" name="marge" value="none" checked>市町村合併対応なし
-                     <input type="radio" name="marge" value="pattern1">市町村合併対応パターン１
-                     <input type="radio" name="marge" value="pattern2">市町村合併対応パターン２   <BR>
+                     <div class="section">
+                        <br><input type="radio" name="method" value="pre" onclick="check()" checked>都道府県ごとにまとめて
+                        <input type="radio" name="method" value="middle" onclick="check()">中選挙区ごとにまとめて
+                        <input type="radio" name="method" value="small" onclick="check()">小選挙区ごとにまとめて
+                        <input type="radio" name="method" value="city" onclick="check()">市区町村ごとにまとめて   <br><br>
+                     </div>
+                     <div style="display:none" class="other">
+                        <input type="radio" name="marge" value="none" checked>市町村合併対応なし
+                        <input type="radio" name="marge" value="pattern1">市町村合併対応パターン１
+                        <input type="radio" name="marge" value="pattern2">市町村合併対応パターン２   <BR>
+                    </div>
                </td>
             </tr>
          </table> 
@@ -187,8 +190,6 @@ if (!isset($_SESSION["USERID"])) {
       </div><!--main-->
 
    </body>
-
->>>>>>> origin/yamamoto_improve
 </html>
 
 
