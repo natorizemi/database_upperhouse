@@ -84,8 +84,8 @@ else if (isset($_POST["register"])) {
     $userid = $mysqli->real_escape_string($_POST["userid"]);
     $group = $mysqli->real_escape_string($_POST["group"]);
     $mail = $mysqli->real_escape_string($_POST["mail"]);
-    $password = $mysqli->real_escape_string($_POST['password']);    
-    
+    $password = $mysqli->real_escape_string($_POST['password']);
+    $newitem = $mysqli->real_escape_string($_POST['newitem']);
     if (!preg_match("/^[a-zA-Z0-9]+$/", $password)) {
       $errorMessage = "パスワードは半角英数で登録してください。" ;
     }
@@ -111,7 +111,7 @@ else if (isset($_POST["register"])) {
       $hash = password_hash($password, PASSWORD_DEFAULT, $options); 
 
       // クエリの実行
-      $query = "INSERT INTO `member_imfo`(`firstname`,`lastname`, `group`, `mail`, `userid`,`password`) VALUES ('$firstname','$lastname','$group','$mail','$userid','$hash')";
+      $query = "INSERT INTO `member_imfo`(`firstname`,`lastname`, `group`, `mail`, `userid`,`password`,`newitem`) VALUES ('$firstname','$lastname','$group','$mail','$userid','$hash','$newitem')";
       $result = $mysqli->query($query);
       if (!$result) {
         print('クエリーが失敗しました。' . $mysqli->error);
@@ -178,7 +178,7 @@ else if (isset($_POST["register"])) {
             <br>
             <input required="required" placeholder="password"　color="red" type="password" id="password_login" name="password_login" value="" size=20   >
             <br>
-            <br>  
+            <br>
             <input type="submit" name="login" value="login">  
             <?php if ($errorMessage_login) {echo '<p style="color:red;">' . h($errorMessage_login) . '</p>';}?>
           </form>
@@ -202,6 +202,10 @@ else if (isset($_POST["register"])) {
             <input required="required" placeholder="passsword" type="text" id="password" name="password" value=""　size=20 />
             <br>
             <br>
+            <input type="text" required="required" placeholder="新項目" id="newitem" name="newitem" value=""　size=20   />
+            <br>
+            <br>
+            
             <input type="submit"  id="register" name="register" value="register" class="botton" />
             <?php if ($errorMessage) {echo '<p style="color:red;">' . h($errorMessage) . '</p>';}?>
           
