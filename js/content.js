@@ -26,7 +26,7 @@ var normal = {'有権者数':'選挙当日の有権者数',
 			'党派・会派等':'党派・会派等',
 			'現新':'現職・新人の別',
 			'サイト':'サイト',
-			//'性別':'性別'
+			//'性別':'性別',
 			'前職':'前職'};
 			
 function treeMenu(tName) {
@@ -63,30 +63,58 @@ function relation(){
 	if(type==true){
 		deleteContent();
 		loopContent(normal,'uhnormal[]');
-		$( ".get" ).attr( "checked", false );
-		$( ".get" ).attr( "disabled", "disabled" );
-	}else{
+		$( "#treeMenu7" ).children( "input" ).attr( "checked", false );
+		$( "#treeMenu7" ).children( "input" ).attr( "disabled", "disabled" );
+	/*}else if(type==false){
 		deleteContent();
 		loopContent(uhcommon,'uhcommon[]');
 		loopContent(uhcontent,'uhcontent[]');
 		loopContent(uhsummarize,'uhsummarize[]');
-		$(".get").removeAttr("disabled");
+		$("#treeMenu7").children("input").removeAttr("disabled");
 		$( "input[value='summarize']" ).css( "margin-left", "25px" );
+	*/}else if((type==false) && $(".none").is( ':checked' )){
+		deleteContent();
+		loopContent(uhcommon,'uhcommon[]');
+		loopContent(uhcontent,'uhcontent[]');
+		loopContent(uhsummarize,'uhsummarize[]');
+		$("#treeMenu7").children("input").removeAttr("disabled");
+		$( "input[value='summarize']" ).css( "margin-left", "25px" );
+	  }else if((type==false) && $(".pattern1").is( ':checked' )){
+		deleteContent();
+		loopContent(uhcommon,'uhcommon[]');
+		loopContent(uhcontent,'uhcontent[]');
+		loopContent(uhsummarize,'uhsummarize[]');
+		$("#treeMenu7").children("input").removeAttr("disabled");
+		$( "input[value='summarize']" ).css( "margin-left", "25px" );
+		$("input[value='投票率']").attr( "checked", false );
+   	    $("input[value='candRelative']").attr( "checked", false );
+   	    $("input[value='partyRelative']").attr( "checked", false );
+   	    $("input[value='candAbsolute']").attr( "checked", false );
+   	    $("input[value='partyAbsolute']").attr( "checked", false );
+   	    $("input[value='投票率']").attr( "disabled", "disabled" );
+   	    $("input[value='candRelative']").attr( "disabled", "disabled" );
+   	    $("input[value='partyRelative']").attr( "disabled", "disabled" );
+   	    $("input[value='candAbsolute']").attr( "disabled", "disabled" );
+   	    $("input[value='partyAbsolute']").attr( "disabled", "disabled" );
+	}else if((type==false) && $(".pattern2").is( ':checked' )){
+		deleteContent();
+		loopContent(uhcommon,'uhcommon[]');
+		loopContent(uhcontent,'uhcontent[]');
+		loopContent(uhsummarize,'uhsummarize[]');
+		$("#treeMenu7").children("input").removeAttr("disabled");
+		$( "input[value='summarize']" ).css( "margin-left", "25px" );
+		$("input[value='投票率']").attr( "checked", false );
+   	    $("input[value='candRelative']").attr( "checked", false );
+   	    $("input[value='partyRelative']").attr( "checked", false );
+   	    $("input[value='candAbsolute']").attr( "checked", false );
+   	    $("input[value='partyAbsolute']").attr( "checked", false );
+   	    $("input[value='投票率']").attr( "disabled", "disabled" );
+   	    $("input[value='candRelative']").attr( "disabled", "disabled" );
+   	    $("input[value='partyRelative']").attr( "disabled", "disabled" );
+   	    $("input[value='candAbsolute']").attr( "disabled", "disabled" );
+   	    $("input[value='partyAbsolute']").attr( "disabled", "disabled" );
 	}
 }
-/*
-function txt(){  
-   var myvalue = $("#text").val().split(",");
-   var words = ["pre", "middle", "small", "city", "none", "uh2007", "uh2008", "uh2009", "uh2010", "uh2011", "uh2012", "001", "002", "003", "uh1007"];
-   var open = ["#treeMenu4", "#treeMenu5", "#treeMenu6", "#treeMenu7", "#treeMenu9", "#treeMenu11"];
-   for( var i = 0; i < myvalue.length; i++ ){
-      for( var j = 0; j < words.length; j++ ){
-            if( myvalue[i] == words[j] ){
-		       $( 'input[value=' + myvalue[i] + ']' ).parent("DIV").css( "display", "block" );
-		       $( 'input[value=' + myvalue[i] + ']' ).prop("checked", true);
-	          }
-		}	  
-   }*/
 
 function txt(){  
    var myvalue = $("#text").val().split(",");
@@ -113,14 +141,6 @@ function txt(){
          	$( 'input[value=' + myvalueR[m] + ']' ).parent("DIV").css( "display", "block" );
          	$("#change").show(relation());
 
-         	/*for(  var k = 0; k < pullR.length; k++ ){
-         	   if( myvalueR[m] == pullR[k]){
-         	      //$("#change").css( "display", "block");
-         	      //$( 'input[value=' + myvalue[n] + ']' ).parent("DIV").css( "display", "block" );
-
-                  $( 'input[value=' + myvalueR[m] + ']' ).prop("checked", true);
-         	   }
-         	}*/
          }
       }
    }
@@ -132,15 +152,6 @@ function txt(){
       	 }
       }
    }
-
-   //$("#treeMenu6").css( "display", "block" );
-   //$("#change").css( "display", "block" );
-   //$("#relation").show();
-
-
-
-
-
 }
 
 $(document).ready( function() {
@@ -154,18 +165,56 @@ function check(){
       $(".other").css("display", "block");
    }else if( $("input[value='pre']").is( ':checked' )){
 	  $(".other").css("display", "none");
+	  $("input[value='投票率']").removeAttr(  "disabled" );
+   	  $("input[value='candRelative']").removeAttr(  "disabled" );
+   	  $("input[value='partyRelative']").removeAttr(  "disabled" );
+   	  $("input[value='candAbsolute']").removeAttr(  "disabled" );
+   	  $("input[value='partyAbsolute']").removeAttr(  "disabled" );
    }else if( $("input[value='middle']").is( ':checked' )){
       $(".other").css("display", "none");
+      $("input[value='投票率']").removeAttr(  "disabled" );
+   	  $("input[value='candRelative']").removeAttr(  "disabled" );
+   	  $("input[value='partyRelative']").removeAttr(  "disabled" );
+   	  $("input[value='candAbsolute']").removeAttr(  "disabled" );
+   	  $("input[value='partyAbsolute']").removeAttr(  "disabled" );
    }else if( $("input[value='small']").is( ':checked' )){
       $(".other").css("display", "none");
+      $("input[value='投票率']").removeAttr(  "disabled" );
+   	  $("input[value='candRelative']").removeAttr(  "disabled" );
+   	  $("input[value='partyRelative']").removeAttr(  "disabled" );
+   	  $("input[value='candAbsolute']").removeAttr(  "disabled" );
+   	  $("input[value='partyAbsolute']").removeAttr(  "disabled" );
    }  
 }
-    
-/*function() {
-   if( $("input[value='relation']").is( ":checked" )){
-      alert("aaa");
-	  //$("#treeMenu7").children("input").prop("disabled", true);
+
+function ocheck(){
+   if( $("input[value='pattern1']").is( ':checked' )){
+   	 $("input[value='投票率']").attr( "checked", false );
+   	 $("input[value='candRelative']").attr( "checked", false );
+   	 $("input[value='partyRelative']").attr( "checked", false );
+   	 $("input[value='candAbsolute']").attr( "checked", false );
+   	 $("input[value='partyAbsolute']").attr( "checked", false );
+   	 $("input[value='投票率']").attr( "disabled", "disabled" );
+   	 $("input[value='candRelative']").attr( "disabled", "disabled" );
+   	 $("input[value='partyRelative']").attr( "disabled", "disabled" );
+   	 $("input[value='candAbsolute']").attr( "disabled", "disabled" );
+   	 $("input[value='partyAbsolute']").attr( "disabled", "disabled" );
+   }else if( $("input[value='pattern2']").is( ':checked' )){
+     $("input[value='投票率']").attr( "checked", false );
+   	 $("input[value='candRelative']").attr( "checked", false );
+   	 $("input[value='partyRelative']").attr( "checked", false );
+   	 $("input[value='candAbsolute']").attr( "checked", false );
+   	 $("input[value='partyAbsolute']").attr( "checked", false );  	
+     $("input[value='投票率']").attr( "disabled", "disabled" );
+   	 $("input[value='candRelative']").attr( "disabled", "disabled" );
+   	 $("input[value='partyRelative']").attr( "disabled", "disabled" );
+   	 $("input[value='candAbsolute']").attr( "disabled", "disabled" );
+   	 $("input[value='partyAbsolute']").attr( "disabled", "disabled" );
    }else{
-   	  alert("bbb");
+   	 $("input[value='投票率']").removeAttr(  "disabled" );
+   	 $("input[value='candRelative']").removeAttr(  "disabled" );
+   	 $("input[value='partyRelative']").removeAttr(  "disabled" );
+   	 $("input[value='candAbsolute']").removeAttr(  "disabled" );
+   	 $("input[value='partyAbsolute']").removeAttr(  "disabled" );
    }
-}*/
+}

@@ -52,9 +52,9 @@ if (!isset($_SESSION["USERID"])) {
                         <input type="radio" name="method" value="city" onclick="check()">市区町村ごとにまとめて   <br><br>
                      </div>
                      <div style="display:none" class="other">
-                        <input type="radio" name="marge" value="none" checked>市町村合併対応なし
-                        <input type="radio" name="marge" value="pattern1">市町村合併対応パターン１
-                        <input type="radio" name="marge" value="pattern2">市町村合併対応パターン２   <BR>
+                        <input type="radio" name="marge" value="none" onclick="ocheck()" class="none" checked>市町村合併対応なし
+                        <input type="radio" name="marge" value="pattern1" onclick="ocheck()" class="pattern1">市町村合併対応パターン１
+                        <input type="radio" name="marge" value="pattern2" onclick="ocheck()" class="pattern2">市町村合併対応パターン２   <BR>
                     </div>
                </td>
             </tr>
